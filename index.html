@@ -1,4 +1,12 @@
-root{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--text:#fff;--text-dim:#8b949e;--accent:#ffcc00;--green:#238636;--red:#da3633;--blue:#58a6ff;--border:#30363d}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>BETAPP</title>
+<style>
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--text:#fff;--text-dim:#8b949e;--accent:#ffcc00;--green:#238636;--red:#da3633;--blue:#58a6ff;--border:#30363d}
 body.light{--bg:#f5f5f7;--bg2:#fff;--bg3:#e8e8ed;--text:#1d1d1f;--text-dim:#6e6e73;--accent:#ff9500;--green:#34c759;--red:#ff3b30;--blue:#0071e3;--border:#d2d2d7}
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,sans-serif;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
@@ -30,12 +38,11 @@ body{background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 .tab.active{background:var(--accent);color:#000}
 .match{background:var(--bg2);margin:8px 12px;border-radius:12px;padding:14px;border:1px solid var(--border);cursor:pointer;position:relative}
 .match.mybet{border:2px solid var(--accent)}
-.match.mybet::after{content:'🎯 ТВОЯ';position:absolute;top:-8px;right:12px;background:var(--accent);color:#000;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px}
 .match-header{display:flex;justify-content:space-between;font-size:12px;margin-bottom:8px;align-items:center}
 .league{color:var(--text-dim)}
 .time{color:var(--accent);font-weight:700;display:flex;align-items:center;gap:4px}
-.live-dot{display:inline-block;width:8px;height:8px;background:var(--red);border-radius:50%;animation:p 1s infinite}
-@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.live-dot{display:inline-block;width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse-dot 1s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
 .teams{font-size:16px;font-weight:600;margin-bottom:12px;line-height:1.3}
 .score{color:var(--accent);font-weight:900;margin-left:6px;font-size:18px}
 .lock-banner{background:var(--red);color:#fff;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;text-align:center;margin-bottom:8px}
@@ -886,7 +893,7 @@ function renderSpreadBody(){
     html+='</div></div>';
   }
   if(currentSpreadTab==='half1'){
-    if(s.phase!=='first'){html+='<div class="no-data">⏸ 1-й тайм завершён<br><br>Ставки в следующем матче</div>';}
+    if(s.phase!=='first'){html+='<div class="no-data">⏸ 1-й тайм завершён</div>';}
     else{
       const g1=h+a;
       const hL=[0.5,1.5,2.5,3.5];
